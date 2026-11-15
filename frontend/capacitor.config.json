@@ -1,0 +1,16 @@
+{
+  "appId": "com.medtracker.app",
+  "appName": "MedTracker",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https",
+    "cleartext": true
+  },
+  "plugins": {
+    "LocalNotifications": {
+      "smallIcon": "ic_stat_icon_config_sample",
+      "iconColor": "#059669",
+      "sound": "beep.wav"
+    }
+  }
+}

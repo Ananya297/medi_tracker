@@ -1,0 +1,17 @@
+# -----------------------------------------------------------------------------
+# Vercel Serverless Python Entrypoint
+# Dynamically configures sys.path to discover app modules and exports FastAPI app
+# -----------------------------------------------------------------------------
+import sys
+import os
+
+# Add root backend directory to sys.path so app modules import cleanly on Vercel
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+if parent_dir not in sys.path:
+    sys.path.insert(0, parent_dir)
+
+from app.main import app
+
+# Vercel serverless requires ASGI/WSGI callable exposed at module level
+__all__ = ["app"]
